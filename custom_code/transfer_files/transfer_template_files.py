@@ -13,6 +13,7 @@ def save_text(text,file_name,file_folder,location,is_override = False):
         if os.path.isdir(file_folder_full_path):
             print(f'{bcolors.FAIL}\t!!!!!FILE IS EXISTED, PLEASE CHOOSE ANOTHER NAME!!!!!{bcolors.ENDC}')
             return
+    file_folder_full_path = file_folder_full_path.replace('.dart','')
     if os.path.exists(file_name_full_path):
         os.remove(file_name_full_path)
     print(f'\tSaving file {bcolors.HEADER}{file_folder_full_path}{bcolors.ENDC} to location:{bcolors.HEADER}{file_folder_full_path}{bcolors.ENDC}')

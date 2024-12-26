@@ -6,7 +6,7 @@ from custom_code.custom_utils import bcolors, file_creator,select_options,get_us
 from custom_code.update_index.update_index import update_index_content
 # location, please edit...
 # leave it if you are using it directly in your project
-project_path = './'
+project_path = '/Users/nango/Desktop/Projects/flutter_common_widget_design_template'
 #do not edit these configs
 folder_project_structure = '/_original_files/project_structure_templates'
 working_directory = os.path.dirname(os.path.abspath(__file__))

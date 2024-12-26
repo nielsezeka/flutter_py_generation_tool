@@ -11,7 +11,8 @@ def update_index_content(folder_to_update,index_file):
         path = root.split(os.sep)
         for file in files:
             item = '/'.join(path).replace(folder_to_update,'.') + '/'+file
+
             #should remove the file is the index.
-            if '_index.dart' not in item: 
+            if '_index.dart' not in item and item.find(".dart") != -1: 
                 text_to_change += f'\npart \'{item}\';'
     return replacer('[replace_here]',text_to_change,index_file)

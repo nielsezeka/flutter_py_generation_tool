@@ -45,11 +45,12 @@ def create_widget(project_path):
     camel_case = convert_camel_case(create_screen_name)
     snake_case = camel_to_snake(camel_case)
     builded_file_name = f'app_{snake_case}.dart'
+    builded_folder_name = f'app_{snake_case}'
     builded_code_name = f'App{camel_case}'
     project_path += '/lib/presentationals/widgets/'
     print(f'\n{bcolors.OKGREEN} --------- GENERATING FILES ---------{bcolors.ENDC}')
     print(f'{bcolors.OKGREEN}Creating new widget in folder:{bcolors.ENDC} {bcolors.OKBLUE}lib/services/{snake_case}{bcolors.ENDC}')
     # print('-------- Create screen process -------------------------------------')
     content_file = replacer(file_creator.replacing_text ,builded_code_name,file_creator.path_for_widget_template)
-    save_text(content_file,builded_file_name,builded_file_name,project_path)
+    save_text(content_file,builded_file_name,builded_folder_name,project_path)
     print('-------- Completed widget process ----------------------------------')
