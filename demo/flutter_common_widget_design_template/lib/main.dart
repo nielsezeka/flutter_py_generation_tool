@@ -37,7 +37,11 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           initialRoute: RouteDefination.main.getName(),
           routes: {
-            RouteDefination.main.getName(): (context) => const ScreenDemo(),
+            RouteDefination.main.getName(): (context) =>
+                globalAppRoute.makeScreen(
+                  context,
+                  ScreenDemo(),
+                ),
           },
         );
       },

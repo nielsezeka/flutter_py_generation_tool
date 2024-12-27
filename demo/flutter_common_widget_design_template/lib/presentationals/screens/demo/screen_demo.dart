@@ -8,19 +8,66 @@ class ScreenDemo extends StatefulWidget {
 }
 
 class _ScreenDemoState extends State<ScreenDemo> {
+  int selected = -1;
   @override
   Widget build(BuildContext context) {
     return Material(
       color: context.colorScheme.primary,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            _renderButtonsDemo(),
-            _renderHorizontalListDemo(),
-            _renderContainerDemo(),
-          ],
-        ),
+      child: Column(
+        children: [
+          Container(
+            height: 100,
+          ),
+          Expanded(
+            child: AppSelectiveMenuFullScreen(
+              screens: [
+                SelectiveScreen(
+                  child: AppContainer(
+                    child: Text('Screen 1'),
+                  ),
+                ),
+                SelectiveScreen(
+                  child: AppContainer(
+                    child: Text('Screen 2'),
+                  ),
+                ),
+                SelectiveScreen(
+                  child: AppContainer(
+                    child: Text('Screen 3'),
+                  ),
+                ),
+                SelectiveScreen(
+                  child: AppContainer(
+                    child: Text('Screen 4'),
+                  ),
+                ),
+              ],
+              selectedIndex: (int value) {
+                setState(
+                  () {
+                    if (selected == value) {
+                      selected = -1;
+                    } else {
+                      selected = value;
+                    }
+                  },
+                );
+              },
+              activeItemIndex: selected,
+            ),
+          ),
+        ],
       ),
+      // SingleChildScrollView(
+      //   child: Column(
+      //     children: [
+      //       _renderButtonsDemo(),
+      //       _renderHorizontalListDemo(),
+      //       _renderContainerDemo(),
+      //       AppDemoWithNamed(child: AppTabSelection()),
+      //     ],
+      //   ),
+      // ),
     );
   }
 
